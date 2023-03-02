@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eou pipefail
 
-source /dev/stdin <<< "$(curl -fsSL https://raw.githubusercontent.com/jldeen/dotfiles/mac/script/prompt)"
+source /dev/stdin <<< "$(curl -fsSL https://raw.githubusercontent.com/sasi-uvr/dotfiles/mac/script/prompt)"
 
 brewInstall () {
     # Install brew
@@ -150,14 +150,6 @@ pathogenInstall () {
     fi
 }
 
-nerdtreeInstall () {
-    if [ -d "$HOME/.vim/bundle/nerdtree" ]; then
-        info 'vim nerdtree already installed'
-    else
-        git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree && success 'vim nerdtree installed'
-    fi
-}
-
 wombatColorSchemeInstall () {
     if [ -f "$HOME/.vim/colors/wombat.vim" ]; then
         info "wombat color scheme already installed"
@@ -193,13 +185,13 @@ wombatColorSchemeInstall
 
 # Pull down personal dotfiles
 echo ''
-read -p "Do you want to use jldeen's dotfiles? y/n" -n 1 -r
+read -p "Do you want to use sasi-uvr's dotfiles? y/n" -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     echo ''
-	echo "Now pulling down jldeen dotfiles..."
-	git clone https://github.com/jldeen/dotfiles.git ~/.dotfiles
+	echo "Now pulling down sasi-uvr dotfiles..."
+	git clone https://github.com/sasi-uvr/dotfiles.git ~/.dotfiles
 	echo ''
 	cd $HOME/.dotfiles && echo "switched to .dotfiles dir..."
 	echo ''
@@ -210,13 +202,13 @@ then
 
     if [[ $? -eq 0 ]]
     then
-        echo "Successfully configured your environment with jldeen's macOS dotfiles..."
+        echo "Successfully configured your environment with sasi-uvr's macOS dotfiles..."
     else
-        echo "jldeen's macOS dotfiles were not applied successfully..." >&2
+        echo "sasi-uvr's macOS dotfiles were not applied successfully..." >&2
 fi
 else 
 	echo ''
-    echo "You chose not to apply jldeen's macOS dotfiles. You will need to configure your environment manually..."
+    echo "You chose not to apply sasi-uvr's macOS dotfiles. You will need to configure your environment manually..."
 	echo ''
 	echo "Setting defaults for .zshrc and .bashrc..."
 	echo ''
