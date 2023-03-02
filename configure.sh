@@ -180,7 +180,6 @@ tmuxTpmInstall
 #vim setup
 vundleInstall
 pathogenInstall
-nerdtreeInstall
 wombatColorSchemeInstall
 
 # Pull down personal dotfiles
